@@ -1,4 +1,4 @@
-# 🌳 Grow Story
+# 🌳 Grow Story Refactoring
 
 ![main](https://github.com/nalsae/seb45_main_011/assets/101828759/1d9742ff-27eb-4ac2-8e59-d56bbade03d3)
 
@@ -22,19 +22,9 @@
 
 ## 🚩 프로젝트 개요
 
-- **프로젝트 명** : Grow Story
-- **진행 기간** : 23.08.24 ~ 23.09.19
+- **프로젝트 명** : Grow Story Refactoring
+- **진행 기간** : 24.03.18 ~ 
 - **서비스 URL** : [🌳 Grow Story 🌳 바로 가기](https://grow-story.vercel.app/)
-
-<br>
-
-## 👨‍👩‍👧‍👦 팀원 소개
-
-|                                                 김민석                                                  |                                                 심도연                                                  |                                                 최한빈                                                 |                                                 황도경                                                 |                                                 김도형                                                 |                                                 이승태                                                  |
-| :-----------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
-| <img alt="김민석" src="https://avatars.githubusercontent.com/u/101828759?v=4" height="100" width="100"> | <img alt="심도연" src="https://avatars.githubusercontent.com/u/126948653?v=4" height="100" width="100"> | <img alt="최한빈" src="https://avatars.githubusercontent.com/u/44600584?v=4" height="100" width="100"> | <img alt="황도경" src="https://avatars.githubusercontent.com/u/71459076?v=4" height="100" width="100"> | <img alt="김도형" src="https://avatars.githubusercontent.com/u/62333468?v=4" height="100" width="100"> | <img alt="이승태" src="https://avatars.githubusercontent.com/u/124790177?v=4" height="100" width="100"> |
-|                                  [@nalsae](https://github.com/nalsae)                                   |                              [@shimdokite](https://github.com/shimdokite)                               |                              [@hanbinchoi](https://github.com/hanbinchoi)                              |                             [@Smile:DK](https://github.com/Dokyung-Hwang)                              |                               [@dohyoungK](https://github.com/dohyoungK)                               |                                 [@NtoZero](https://github.com/NtoZero)                                  |
-|                                             **FE** (부팀장)                                             |                                                 **FE**                                                  |                                                 **FE**                                                 |                                             **BE** (팀장)                                              |                                                 **BE**                                                 |                                                 **BE**                                                  |
 
 <br>
 
@@ -44,33 +34,13 @@
 
 <br>
 
-## 📝 관련 문서
-
-#### [📌 요구사항 정의서](https://docs.google.com/spreadsheets/d/1DfUeCgU0jrdEpSmEmLVWainZ1wjpvFihpR83t6NWGdw/edit#gid=160309127)
-
-#### [📌 화면 정의서](https://www.figma.com/file/yL1b8KClwZHoBXDcCp4wei/GrowStroy?type=design&node-id=1-8&mode=design)
-
-#### [📌 API 명세서](https://documenter.getpostman.com/view/27565928/2s9Y5YS34h)
-
-#### [📌 ERD](https://www.figma.com/file/yL1b8KClwZHoBXDcCp4wei/GrowStroy?type=design&node-id=1-8&mode=design)
-
-![ERD  GrowStory_final](https://github.com/nalsae/seb45_main_011/assets/101828759/35b133c5-790e-48cf-be56-8eb2f4c54522)
-
-<br>
-
-## 🎤 기술 발표
-
-#### [🎞 발표 영상 바로 가기](https://www.youtube.com/watch?v=GHia0UGUqTw)
-
-<br>
-
 ## 📜 서비스 매뉴얼
 
 #### [📥 서비스 매뉴얼 다운로드](https://github.com/nalsae/seb45_main_011/files/12662276/Grow.Story.pdf)
 
 <br>
 
-## 🖥 구현 이미지
+## 🖥 구현 이미지 
 
 | 페이지 (기능)         | 이미지                                                                                                                          |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
