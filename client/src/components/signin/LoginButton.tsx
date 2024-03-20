@@ -23,6 +23,7 @@ export default function LoginButtion() {
 
   const goToGoogleLogin = () => {
     router.push(`${googleOauth}`);
+
     onGoogleLogin;
   };
 

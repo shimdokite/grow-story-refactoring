@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation';
+
 import { useMutation } from '@tanstack/react-query';
 
 import { deleteUser } from '@/api/history';
@@ -15,6 +16,7 @@ const useDeleteGuestMutation = () => {
 
     onSuccess: () => {
       setClear();
+
       router.push('/');
     },
   });
