@@ -11,7 +11,7 @@ const useCreateGuestMutation = () => {
     mutationFn: () => postCreateGuest(),
 
     onSuccess: (data) => {
-      const userId = data.headers.location.slice(-3);
+      const userId = data.headers.location.match(/\/(\d+)/)[1];
       const accessToken = data.headers.authorization;
       const refreshToken = data.headers.refresh;
       const displayName = `게스트 ${userId}`;

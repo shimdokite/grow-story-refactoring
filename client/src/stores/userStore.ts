@@ -18,7 +18,6 @@ interface UserInfo {
 interface User extends UserInfo {
   setGoogleUser: (userInfo: UserInfo) => void;
   setEmailUser: (userInfo: UserInfo) => void;
-
   setGuestMode: (userInfo: UserInfo) => void;
 
   setProfileImageUrl: (profileImageUrl: string) => void;
