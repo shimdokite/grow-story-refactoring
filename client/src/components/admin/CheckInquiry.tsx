@@ -1,14 +1,18 @@
 'use client';
 
+import { createPortal } from 'react-dom';
+
 import useModalStore, { ModalType } from '@/stores/modalStore';
 
 import useUpdateChatAnsweredMutation from '@/hooks/mutation/useUpdateChatAnsweredMutation';
+import useModal from '@/hooks/useModal';
 
 import { ChatModal, InquiryListForm } from '.';
 
 export default function CheckInquiry() {
   const { isOpen, type, close } = useModalStore();
 
+  const { portalElement } = useModal(isOpen);
   const { mutate: onAnswered } = useUpdateChatAnsweredMutation();
 
   const handleAnswered = () => {
@@ -27,7 +31,9 @@ export default function CheckInquiry() {
         <InquiryListForm />
       </div>
 
-      {isOpen && renderModal(type)}
+      {isOpen && portalElement
+        ? createPortal(renderModal(type), portalElement)
+        : null}
     </div>
   );
 }
