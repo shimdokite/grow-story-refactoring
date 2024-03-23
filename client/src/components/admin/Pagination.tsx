@@ -2,6 +2,7 @@ import { MouseEventHandler } from 'react';
 
 interface PaginationProps {
   page: number;
+
   onFirstPage: MouseEventHandler<HTMLDivElement>;
   onLastPage: MouseEventHandler<HTMLDivElement>;
   onPreviousPage: MouseEventHandler<HTMLButtonElement>;

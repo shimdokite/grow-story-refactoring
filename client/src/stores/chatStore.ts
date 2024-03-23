@@ -30,6 +30,7 @@ const useChatStore = create<ChatState>((set) => ({
   title: '',
   roomId: '',
   questionerId: '',
+
   isOpen: false,
 
   setChatList: (chatList) => {
