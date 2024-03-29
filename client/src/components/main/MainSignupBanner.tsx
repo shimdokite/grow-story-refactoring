@@ -7,7 +7,7 @@ export default function MainSignupBanner() {
   return (
     <Link
       href={'/signup'}
-      className="flex justify-between items-center gap-5 px-[25px] py-[21px] bg-[url('/assets/img/bg_wood_light.png')] border-[3px] border-brown-50 rounded-xl shadow-outer/down max-[500px]:px-[17px] max-[500px]:py-[14px] max-[500px]:gap-2">
+      className="mx-4 flex justify-between items-center gap-5 px-[25px] py-[21px] bg-[url('/assets/img/bg_wood_light.png')] border-[3px] border-brown-50 rounded-xl shadow-outer/down max-[500px]:px-[17px] max-[500px]:py-[14px] max-[500px]:gap-2">
       <Image
         className="max-[500px]:w-[36px]"
         src={'/assets/img/no_border_tree.svg'}

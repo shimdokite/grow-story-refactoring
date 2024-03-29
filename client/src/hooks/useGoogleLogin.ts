@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import useUserStore from '@/stores/userStore';
 
 const useGoogleLogin = () => {
+  const googleOauth = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL;
+
   const router = useRouter();
 
   const { isGoogleLogin, setGoogleUser, isEmailLogin } = useUserStore();
@@ -41,7 +43,13 @@ const useGoogleLogin = () => {
     }
   }, [isGoogleLogin]);
 
-  return { isGoogleLogin, setGoogleUser, isEmailLogin, onGoogleLogin };
+  return {
+    googleOauth,
+    isGoogleLogin,
+    setGoogleUser,
+    isEmailLogin,
+    onGoogleLogin,
+  };
 };
 
 export default useGoogleLogin;

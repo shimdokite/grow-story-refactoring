@@ -15,6 +15,7 @@ import {
 } from '@/components/common';
 import ServiceInfo from '@/components/main/ServiceInfo';
 import MainSignupBanner from '@/components/main/MainSignupBanner';
+import MainGoogleSignupBanner from '@/components/main/MainGoogleSignupBanner';
 import ScrollDownButton from '@/components/main/ScrollDownButton';
 import { InquiryButton } from '@/components/inquiry';
 
@@ -75,16 +76,24 @@ export default function Home() {
                 ))}
               </div>
               {!(isEmailLogin || isGoogleLogin) && (
-                <motion.section
-                  initial={{ y: 100, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                  whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
-                  transition={{ ease: 'easeInOut', duration: 1 }}>
-                  <div className="flex justify-center w-full max-w-[459px] h-fit mx-auto">
+                <div className="flex justify-center gap-5 w-full h-fit max-[943px]:flex-col max-[943px]:items-center">
+                  <motion.section
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                    whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
+                    transition={{ ease: 'easeInOut', duration: 1 }}>
+                    <MainGoogleSignupBanner />
+                  </motion.section>
+                  <motion.section
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                    whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
+                    transition={{ ease: 'easeInOut', duration: 1 }}>
                     <MainSignupBanner />
-                  </div>
-                </motion.section>
+                  </motion.section>
+                </div>
               )}
               <NotificationButton />
               <InquiryButton />

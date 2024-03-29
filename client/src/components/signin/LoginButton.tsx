@@ -11,14 +11,13 @@ import useCreateGuestMutation from '@/hooks/mutation/useCreateGuestMutation';
 import { CommonButton } from '../common';
 
 export default function LoginButtion() {
-  const googleOauth = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL;
-
   const router = useRouter();
 
   const { getSigninForm } = useSignStore();
 
   const isClient = useClient();
-  const { isGoogleLogin, isEmailLogin, onGoogleLogin } = useGoogleLogin();
+  const { isGoogleLogin, isEmailLogin, onGoogleLogin, googleOauth } =
+    useGoogleLogin();
   const { mutate: onGuestMode } = useCreateGuestMutation();
 
   const goToGoogleLogin = () => {
