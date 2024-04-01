@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation';
+import { cookies } from 'next/headers';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 
@@ -45,6 +46,17 @@ const useSigninMutation = () => {
         displayName,
         profileImageUrl,
       });
+
+      //TODO: userId가 cookie에 잘 들어오는지 확인하기.
+      cookies().set({
+        name: 'userId',
+        value: userId,
+        maxAge: 60 * 60 * 24 * 30,
+        httpOnly: true,
+        secure: true,
+      });
+
+      console.log(cookies().get('userId'));
 
       getSigninForm(false);
       getSignupForm(false);
