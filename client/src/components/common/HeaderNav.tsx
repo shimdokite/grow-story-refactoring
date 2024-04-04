@@ -9,6 +9,8 @@ import useChatStore from '@/stores/chatStore';
 
 import useDeleteGuestMutation from '@/hooks/mutation/useDeleteGuestMutation';
 
+import removeCookiesForUserId from '@/utils/removeCookiesForUserId';
+
 interface HeaderNavProps {
   isMenuHover?: boolean;
   isProfileHover?: boolean;
@@ -28,16 +30,21 @@ export default function HeaderNav({
   const { mutate: onDeleteGuest } = useDeleteGuestMutation();
 
   const logout = () => {
-    if (isGuestMode) {
-      onDeleteGuest();
-    }
-
+    removeCookiesForUserId();
     setClear();
 
     getSigninForm(false);
     getSignupForm(false);
 
     router.push('/');
+  };
+
+  const guestLogout = () => {
+    if (isGuestMode) {
+      onDeleteGuest();
+      getSigninForm(false);
+      getSignupForm(false);
+    }
   };
 
   return (
@@ -64,7 +71,7 @@ export default function HeaderNav({
 
               <div
                 className="flex justify-center py-2 px-[2px] cursor-pointer"
-                onClick={logout}>
+                onClick={isGuestMode ? guestLogout : logout}>
                 {isGuestMode ? '게스트 종료' : '로그아웃'}
               </div>
             </div>

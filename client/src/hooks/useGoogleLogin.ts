@@ -3,6 +3,8 @@ import { useRouter } from 'next/navigation';
 
 import useUserStore from '@/stores/userStore';
 
+import setCookiesByUserId from '@/utils/setCookiesByUserId';
+
 const useGoogleLogin = () => {
   const googleOauth = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL;
 
@@ -31,6 +33,8 @@ const useGoogleLogin = () => {
       displayName &&
       profileImageUrl
     ) {
+      setCookiesByUserId(userId);
+
       setGoogleUser({
         userId,
         accessToken,
