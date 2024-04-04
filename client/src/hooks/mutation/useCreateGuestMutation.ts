@@ -4,6 +4,8 @@ import { postCreateGuest } from '@/api/guest';
 
 import useUserStore from '@/stores/userStore';
 
+import setCookiesByUserId from '@/utils/setCookiesByUserId';
+
 const useCreateGuestMutation = () => {
   const { setGuestMode } = useUserStore();
 
@@ -16,6 +18,8 @@ const useCreateGuestMutation = () => {
       const refreshToken = data.headers.refresh;
       const displayName = `게스트 ${userId}`;
       const profileImageUrl = '/assets/img/bg_default_profile.png';
+
+      setCookiesByUserId(userId);
 
       setGuestMode({
         userId,

@@ -1,5 +1,4 @@
 import { useRouter } from 'next/navigation';
-import { cookies } from 'next/headers';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 
@@ -12,6 +11,8 @@ import useChatStore from '@/stores/chatStore';
 import { SigninFormValue } from '@/types/common';
 
 import { ALERT_TEXT } from '@/constants/contents';
+
+import setCookiesByUserId from '@/utils/setCookiesByUserId';
 
 const useSigninMutation = () => {
   const router = useRouter();
@@ -48,15 +49,7 @@ const useSigninMutation = () => {
       });
 
       //TODO: userId가 cookie에 잘 들어오는지 확인하기.
-      cookies().set({
-        name: 'userId',
-        value: userId,
-        maxAge: 60 * 60 * 24 * 30,
-        httpOnly: true,
-        secure: true,
-      });
-
-      console.log(cookies().get('userId'));
+      setCookiesByUserId(userId);
 
       getSigninForm(false);
       getSignupForm(false);
