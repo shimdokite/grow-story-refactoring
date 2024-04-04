@@ -9,6 +9,8 @@ import useChatStore from '@/stores/chatStore';
 
 import useDeleteGuestMutation from '@/hooks/mutation/useDeleteGuestMutation';
 
+import removeCookiesForUserId from '@/utils/removeCookiesForUserId';
+
 interface HeaderNavProps {
   isMenuHover?: boolean;
   isProfileHover?: boolean;
@@ -29,9 +31,10 @@ export default function HeaderNav({
 
   const logout = () => {
     if (isGuestMode) {
-      onDeleteGuest();
+      return onDeleteGuest();
     }
 
+    removeCookiesForUserId();
     setClear();
 
     getSigninForm(false);

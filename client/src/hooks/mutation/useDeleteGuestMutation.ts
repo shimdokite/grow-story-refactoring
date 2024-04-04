@@ -6,6 +6,8 @@ import { deleteUser } from '@/api/history';
 
 import useUserStore from '@/stores/userStore';
 
+import removeCookiesForUserId from '@/utils/removeCookiesForUserId';
+
 const useDeleteGuestMutation = () => {
   const router = useRouter();
 
@@ -15,6 +17,7 @@ const useDeleteGuestMutation = () => {
     mutationFn: () => deleteUser(),
 
     onSuccess: () => {
+      removeCookiesForUserId();
       setClear();
 
       router.push('/');
