@@ -11,7 +11,7 @@ import useChatStore from '@/stores/chatStore';
 
 import { ChatInput, ChatBox } from '.';
 
-import { Chat } from '@/types/data';
+import { ChatData } from '@/types/data';
 
 import checkForToken from '@/utils/checkForToken';
 
@@ -24,7 +24,7 @@ export default function NewChat({ role }: NewChatProps) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const [connected, setConnected] = useState(false);
-  const [chat, setChat] = useState<Chat[]>([]);
+  const [chat, setChat] = useState<ChatData[]>([]);
 
   const router = useRouter();
 
@@ -89,7 +89,7 @@ export default function NewChat({ role }: NewChatProps) {
           subscription = client?.current?.subscribe(
             `/sub/chatRoom/${roomId}`,
             (payload) => {
-              const receivedMessage: Chat = JSON.parse(payload.body);
+              const receivedMessage: ChatData = JSON.parse(payload.body);
 
               setChat((previousChat) => [...previousChat, receivedMessage]);
             },
