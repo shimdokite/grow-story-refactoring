@@ -67,10 +67,7 @@ export default function SignupForm() {
             <CommonButton
               type="button"
               size="sm"
-              onOpen={() => {
-                onValidateEmail();
-                sendCodeWithEmail(email);
-              }}
+              onOpen={() => onValidateEmail()}
               className="mb-3"
               disabled={isCode}>
               {isCode ? '인증 완료!' : '이메일 인증하기'}
