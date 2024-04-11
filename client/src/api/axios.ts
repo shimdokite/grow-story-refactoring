@@ -4,7 +4,12 @@ import LocalStorage from './localStorage';
 
 import checkForToken from '@/utils/checkForToken';
 
-const { authVerify, storageData, accessToken, refreshToken } = checkForToken();
+const { authVerify, storageData } = checkForToken();
+
+const accessToken =
+  typeof window !== 'undefined' ? storageData.state.accessToken : null;
+const refreshToken =
+  typeof window !== 'undefined' ? storageData.state.refreshToken : null;
 
 export const instance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,

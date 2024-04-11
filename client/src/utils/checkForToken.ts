@@ -27,7 +27,7 @@ const checkForToken = () => {
     return true;
   };
 
-  return { authVerify, storageData, accessToken, refreshToken };
+  return { authVerify, storageData };
 };
 
 export default checkForToken;
