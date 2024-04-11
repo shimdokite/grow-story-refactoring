@@ -18,9 +18,10 @@ export default function ChatBox({ chat, user, role }: ChatBoxProps) {
   useEffect(() => {
     if (chat && role === 'admin') {
       const getQuestionerId = (chat: ChatData[]) => {
-        return chat.map((data) => {
-          if (data.senderId !== 101) setQuestionerId(`${data.senderId}`);
-        });
+        return chat.map(
+          (data) =>
+            data.senderId !== 101 && setQuestionerId(`${data.senderId}`),
+        );
       };
 
       getQuestionerId(chat);
