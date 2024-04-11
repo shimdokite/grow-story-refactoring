@@ -27,7 +27,7 @@ export default function SignupForm() {
   const { isCode, setIsCode } = useSignStore();
   const { isGuestMode, setClear } = useUserStore();
 
-  const { mutate: sendCodeWithEmail } = useAuthEmailMutation();
+  const { mutate } = useAuthEmailMutation();
   const { mutate: onSignup } = useSignupMutation();
 
   const email = watch('email');
@@ -37,7 +37,7 @@ export default function SignupForm() {
   const onValidateEmail = () => {
     if (!email) return;
 
-    sendCodeWithEmail(email);
+    mutate(email);
   };
 
   const conditionSignup = () => {
@@ -67,10 +67,7 @@ export default function SignupForm() {
             <CommonButton
               type="button"
               size="sm"
-              onOpen={() => {
-                onValidateEmail();
-                sendCodeWithEmail(email);
-              }}
+              onOpen={() => onValidateEmail()}
               className="mb-3"
               disabled={isCode}>
               {isCode ? '인증 완료!' : '이메일 인증하기'}
