@@ -48,7 +48,6 @@ const useSigninMutation = () => {
         profileImageUrl,
       });
 
-      //TODO: userId가 cookie에 잘 들어오는지 확인하기.
       setCookiesByUserId(userId);
 
       getSigninForm(false);

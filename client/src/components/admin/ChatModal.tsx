@@ -9,7 +9,7 @@ interface ChatModalProps {
 export default function ChatModal({ close, handleAnswered }: ChatModalProps) {
   return (
     <Modal>
-      <div className="px-2 py-2 mx-2 flex flex-col justify-center items-center border-2 rounded-lg border-brown-50 bg-brown-20">
+      <div className="w-[416px] max-[500px]:w-[270px] px-2 py-2 mx-2 flex flex-col justify-center items-center border-2 rounded-lg border-brown-50 bg-brown-20">
         <Chat role="admin" />
 
         <div className="flex justify-center items-center">

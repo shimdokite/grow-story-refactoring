@@ -9,7 +9,7 @@ export const config = {
 const protectedPage = ['/admin'];
 
 export function middleware(request: NextRequest) {
-  const userId = String(request.cookies.get('userId'));
+  const userId = String(request.cookies.get('userId')?.value);
   const currentPath = request.nextUrl.pathname;
 
   if (userId !== ADMIN_USER_ID && protectedPage.includes(currentPath)) {

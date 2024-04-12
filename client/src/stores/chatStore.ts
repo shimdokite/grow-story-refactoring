@@ -11,6 +11,7 @@ interface ChatState {
   roomId: string;
   questionerId: string;
   isOpen: boolean;
+  isNewChatConnect: boolean;
 
   setChatList: (chatList: ChatList[]) => void;
 
@@ -20,6 +21,7 @@ interface ChatState {
   setRoomId: (roomId: string) => void;
   setQuestionerId: (questionerId: string) => void;
   setIsOpen: (isOpen: boolean) => void;
+  setIsNewChatConnect: (isNewChat: boolean) => void;
 }
 
 const useChatStore = create<ChatState>((set) => ({
@@ -32,6 +34,7 @@ const useChatStore = create<ChatState>((set) => ({
   questionerId: '',
 
   isOpen: false,
+  isNewChatConnect: false,
 
   setChatList: (chatList) => {
     set(() => ({ chatList }));
@@ -59,6 +62,10 @@ const useChatStore = create<ChatState>((set) => ({
 
   setIsOpen(isOpen) {
     set({ isOpen, selected: 'home' });
+  },
+
+  setIsNewChatConnect(isNewChatConnect) {
+    set({ isNewChatConnect });
   },
 }));
 

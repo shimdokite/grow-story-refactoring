@@ -1,20 +1,16 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-
-import { CompatClient, Stomp, StompSubscription } from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
 
 import useUserStore from '@/stores/userStore';
 import useChatStore from '@/stores/chatStore';
 
 import useChatMessageQuery from '@/hooks/query/useChatMessageQuery';
+import useChat from '@/hooks/useChat';
 
 import { ChatInput, ChatBox } from '.';
-
-import { ChatData } from '@/types/data';
 
 import checkForToken from '@/utils/checkForToken';
 
@@ -23,17 +19,13 @@ interface ChatProps {
 }
 
 export default function Chat({ role }: ChatProps) {
-  const client = useRef<CompatClient>();
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  const [connected, setConnected] = useState(false);
-  const [chat, setChat] = useState<ChatData[]>([]);
-
   const router = useRouter();
 
-  const { roomId, message, setMessage } = useChatStore();
-  const { accessToken, refreshToken, userId, displayName, setClear } =
-    useUserStore();
+  const { roomId, message, isNewChatConnect, setMessage } = useChatStore();
+  const { userId, displayName, setClear } = useUserStore();
+
+  const { setConnected, setChat, client, scrollRef, chat, connected } =
+    useChat(isNewChatConnect);
 
   const {
     data: messageList,
@@ -42,10 +34,6 @@ export default function Chat({ role }: ChatProps) {
   } = useChatMessageQuery(roomId);
 
   const { authVerify } = checkForToken();
-
-  const url = process.env.NEXT_PUBLIC_API_URL;
-
-  let subscription: StompSubscription | undefined;
 
   const newMessge = {
     senderId: +userId,
@@ -72,6 +60,7 @@ export default function Chat({ role }: ChatProps) {
     }
 
     client?.current?.send(`/pub/chatRoom/send`, {}, JSON.stringify(newMessge));
+
     setMessage('');
   };
 
@@ -80,42 +69,6 @@ export default function Chat({ role }: ChatProps) {
       messageList.map((list) => setChat([...list.previousMessage]));
     }
   }, [messageList]);
-
-  useEffect(() => {
-    client.current = Stomp.over(() => new SockJS(`${url}/wss`));
-    client.current.debug = () => {};
-    client.current.connect(
-      {
-        Authorization: accessToken,
-        refresh: refreshToken,
-      },
-      () => {
-        subscription = client?.current?.subscribe(
-          `/sub/chatRoom/${roomId}`,
-          (payload) => {
-            const receivedMessage: ChatData = JSON.parse(payload.body);
-
-            setChat((previousChat) => [...previousChat, receivedMessage]);
-          },
-        );
-
-        setConnected(true);
-      },
-    );
-
-    return () => {
-      client.current?.disconnect(() => {
-        subscription?.unsubscribe();
-        setConnected(false);
-      });
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!scrollRef.current) return;
-
-    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [chat]);
 
   return (
     <section className="w-full">
@@ -145,5 +98,5 @@ export default function Chat({ role }: ChatProps) {
 
 const CHAT_STYLE = {
   user: 'w-[220px] h-[232px] mb-[7px]',
-  admin: 'lg:w-[392px] sm:w-[312px] h-[327px]',
+  admin: 'w-full h-[327px]',
 };

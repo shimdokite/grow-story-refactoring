@@ -7,7 +7,7 @@ import useChatStore from '@/stores/chatStore';
 
 const useCreateChatRoomMutation = (qnaTitle: string) => {
   const { userId } = useUserStore();
-  const { setRoomId } = useChatStore();
+  const { setRoomId, setIsNewChatConnect } = useChatStore();
 
   const { mutate } = useMutation({
     mutationFn: () => postCreateChatRoom(+userId, qnaTitle),
@@ -16,6 +16,7 @@ const useCreateChatRoomMutation = (qnaTitle: string) => {
       const roomId = `${data.data.chatRoomId}`;
 
       setRoomId(roomId);
+      setIsNewChatConnect(true);
     },
   });
 
