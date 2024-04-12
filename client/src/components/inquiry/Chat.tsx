@@ -98,5 +98,5 @@ export default function Chat({ role }: ChatProps) {
 
 const CHAT_STYLE = {
   user: 'w-[220px] h-[232px] mb-[7px]',
-  admin: 'lg:w-[392px] sm:w-[312px] h-[327px]',
+  admin: 'w-full h-[327px]',
 };
