@@ -8,23 +8,22 @@ import useUserStore from '@/stores/userStore';
 
 import { ChatData } from '@/types/data';
 
-const useChat = (isNewChatConnect: boolean) => {
+const useNewChatAndExistChatConnect = (isNewChatConnect: boolean) => {
   const client = useRef<CompatClient>();
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const [connected, setConnected] = useState(false);
   const [chat, setChat] = useState<ChatData[]>([]);
 
-  const { message, roomId, setMessage, setIsNewChatConnect } = useChatStore();
-  const { accessToken, refreshToken, displayName, userId, setClear } =
-    useUserStore();
+  const { roomId, setIsNewChatConnect } = useChatStore();
+  const { accessToken, refreshToken, userId } = useUserStore();
 
   const url = process.env.NEXT_PUBLIC_API_URL;
 
   let subscription: StompSubscription | undefined;
 
   const entryMessage = () => {
-    const adminId = 101;
+    const adminId = process.env.NEXT_PUBLIC_ADMIN_ID;
 
     client?.current?.send(
       `/pub/chatRoom/enter`,
@@ -79,4 +78,4 @@ const useChat = (isNewChatConnect: boolean) => {
   return { setConnected, setChat, client, scrollRef, chat, connected };
 };
 
-export default useChat;
+export default useNewChatAndExistChatConnect;
