@@ -83,15 +83,16 @@ export default function Home() {
                     whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                     whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
                     transition={{ ease: 'easeInOut', duration: 1 }}>
-                    <MainGoogleSignupBanner />
+                    <MainSignupBanner />
                   </motion.section>
+
                   <motion.section
                     initial={{ y: 100, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                     whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
                     transition={{ ease: 'easeInOut', duration: 1 }}>
-                    <MainSignupBanner />
+                    <MainGoogleSignupBanner />
                   </motion.section>
                 </div>
               )}

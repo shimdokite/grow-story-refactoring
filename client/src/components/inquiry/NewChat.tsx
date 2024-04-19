@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import useUserStore from '@/stores/userStore';
 import useChatStore from '@/stores/chatStore';
 
-import useChat from '@/hooks/useChat';
+import useNewChatAndExistChatConnect from '@/hooks/useNewChatAndExistChatConnect';
 
 import { ChatInput, ChatBox } from '.';
 
@@ -22,7 +22,7 @@ export default function NewChat({ role }: NewChatProps) {
   const { displayName, userId, setClear } = useUserStore();
 
   const { setConnected, client, scrollRef, chat, connected } =
-    useChat(isNewChatConnect);
+    useNewChatAndExistChatConnect(isNewChatConnect);
 
   const { authVerify } = checkForToken();
 
@@ -40,9 +40,7 @@ export default function NewChat({ role }: NewChatProps) {
       authVerify() === 'Refresh Token Expired'
     ) {
       return (
-        alert(
-          '토큰이 만료되었습니다. 로그아웃 후 다시 로그인 해주시길 바랍니다.',
-        ),
+        alert('토큰이 만료되었습니다. 다시 로그인 해주시길 바랍니다.'),
         setConnected(false),
         setClear(),
         setMessage(''),
