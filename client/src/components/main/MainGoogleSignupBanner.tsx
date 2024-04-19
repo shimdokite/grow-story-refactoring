@@ -29,7 +29,7 @@ export default function MainGoogleSignupBanner() {
       />
 
       <p className="text-[1.8rem] font-bold text-brown-40 whitespace-nowrap max-[500px]:text-[1.4rem]">
-        구글로<b className="text-brown-60">&nbsp;회원가입</b>
+        구글로<b className="text-brown-60">&nbsp;가입하기</b>
       </p>
 
       <Image
