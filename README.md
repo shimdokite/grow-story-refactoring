@@ -23,8 +23,8 @@
 ## 🚩 프로젝트 개요
 
 - **프로젝트 명** : Grow Story Refactoring
-- **진행 기간** : 24.03.18 ~ 
-- **서비스 URL** : [🌳 Grow Story 🌳 바로 가기](https://grow-story.vercel.app/)
+- **진행 기간** : 24.03.18 ~
+- **블로그** : [그로우 스토리 리팩토링](https://dokite-99.tistory.com/category/%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0/%EA%B7%B8%EB%A1%9C%EC%9A%B0%20%EC%8A%A4%ED%86%A0%EB%A6%AC%28Grow%20Story%29%20%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
 
 <br>
 
@@ -63,105 +63,3 @@
 | 회원 탈퇴             | ![회원 탈퇴](https://github.com/nalsae/seb45_main_011/assets/101828759/120777f3-9c77-4681-bd3c-78cd5204c90e)                    |
 
 <br>
-
-## 🤙 컨벤션
-
-<details>
-  <summary><h4>📌 Issue</h4></summary>
-  
-  1. 제목
-    
-  - 작업 내용에 따라 커밋 메시지에 사용하는 Gitmoji를 적절하게 작성
-  - 자신이 작업한 내용을 한 눈에 파악하기 쉽도록 명사형으로 작성
-    
-```
-[FE/BE] ✨ OOO 컴포넌트 구현
-```
-
-2. 내용
-
-
-    ## Abstracts
-    * 간략하게 할 일에 대한 설명을 작성해주세요.
-
-    ## To Do
-    - [ ] 구현할 기능 1
-    - [ ] 구현할 기능 2
-
-    ## ETC
-    * 추가적인 안내 사항이 있다면 작성해주세요.
-
-</details>
-
-<details>
-  <summary><h4>📌 Commit</h4></summary>
-
-- 커밋 메시지
-
-1. 적절한 커밋 접두사 작성
-2. 커밋 메시지 내용 작성
-3. 내용 뒤에 이슈 (#이슈 번호)와 같이 작성하여 이슈 연결
-
-
-    [FE/BE] 🔧 Conf: 초기 환경 설정 (#1)
-
-| 접두사        | 설명                           |
-| ------------- | ------------------------------ |
-| ✨ Feat :     | 새로운 기능 구현               |
-| 🍱 Add :      | 에셋 파일 추가                 |
-| 🐛 Fix :      | 버그 수정                      |
-| 📝 Docs :     | 문서 추가 및 수정              |
-| 💄 Style :    | 스타일링 작업                  |
-| ♻️ Refactor : | 코드 리팩토링 (동작 변경 없음) |
-| 🧪 Test :     | 테스트                         |
-| 🚀 Deploy :   | 배포                           |
-| 🔧 Conf :     | 빌드, 환경 설정                |
-| ✏️ Chore :    | 기타 작업                      |
-
-</details>
-
-<details>
-  <summary><h4>📌 Pull Request</h4></summary>
-
-1. 제목
-
-- 작업 내용에 따라 커밋 메시지에 사용하는 Gitmoji를 적절하게 작성
-- 자신이 작업한 내용을 한 눈에 파악하기 쉽도록 명사형으로 작성
-
-```
- [FE/BE] ✨ OOO 컴포넌트 구현
-```
-
-2. 내용
-
-
-    ## Title
-    * 제목은 '✨ 홈 페이지 구현'과 같이 작성합니다.
-
-    ## PR Type
-    - [ ] FEAT: 새로운 기능 구현
-    - [ ] ADD : 에셋 파일 추가
-    - [ ] FIX: 버그 수정
-    - [ ] DOCS: 문서 추가 및 수정
-    - [ ] STYLE: 포맷팅 변경
-    - [ ] REFACTOR: 코드 리팩토링
-    - [ ] TEST: 테스트 관련
-    - [ ] DEPLOY: 배포 관련
-    - [ ] CONF: 빌드, 환경 설정
-    - [ ] CHORE: 기타 작업
-
-    ## Abstracts
-    * 작업 내용에 대해 간략하게 설명을 작성해주세요.
-
-    ## Description
-    * 구체적인 작업 내용을 작성해주세요.
-    * 이미지를 별도로 첨부하면 더 좋습니다 👍
-
-    ## Discussion
-    * 추후 논의할 점에 대해 작성해주세요.
-
-    ---
-    Close #1
-    (작성한 Issue를 연결해주세요.)
-
-</details>

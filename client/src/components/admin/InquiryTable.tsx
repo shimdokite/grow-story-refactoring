@@ -13,7 +13,7 @@ import { ErrorMessage, LoadingMessage } from '../common';
 import { REPORT_TITLE, REPORT_TITLE_STYLE } from '@/constants/contents';
 import { ChatList } from '@/types/data';
 
-export default function InquiryListForm() {
+export default function InquiryTable() {
   const { open, changeType } = useModalStore();
   const { setRoomId, setTitle } = useChatStore();
   const { userId } = useUserStore();

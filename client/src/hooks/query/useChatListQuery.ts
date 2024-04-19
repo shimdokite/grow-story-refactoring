@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { getChatListById } from '@/api/chat';
+
 import useChatStore from '@/stores/chatStore';
 
 const useChatListQuery = (id: string) => {
