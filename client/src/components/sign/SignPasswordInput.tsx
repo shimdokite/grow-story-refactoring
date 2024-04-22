@@ -11,7 +11,7 @@ import getPasswordByType from '@/utils/getPasswordByType';
 interface SignPasswordInputProps {
   tag: 'password' | 'passwordCheck';
   register: UseFormRegister<SignFormValue>;
-  watch: UseFormWatch<SignFormValue>;
+  password: string;
   errors: FieldErrors<SignFormValue>;
   disabled?: boolean;
 }
@@ -19,11 +19,11 @@ interface SignPasswordInputProps {
 export default function SignPasswordInput({
   tag,
   register,
-  watch,
+  password,
   errors,
   disabled,
 }: SignPasswordInputProps) {
-  const passwordFormat = getPasswordByType(tag, watch);
+  const passwordFormat = getPasswordByType(tag, password);
 
   const errorMsg = errors[tag]?.message;
 

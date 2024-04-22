@@ -1,13 +1,6 @@
-import { UseFormWatch } from 'react-hook-form';
-
-import { SignFormValue } from '@/types/common';
-
 import { SIGN_VAILDATION } from '@/constants/contents';
 
-export default function getPasswordByType(
-  tag: string,
-  watch?: UseFormWatch<SignFormValue>,
-) {
+export default function getPasswordByType(tag: string, password?: string) {
   if (tag === 'password') {
     return {
       validation: {
@@ -20,12 +13,11 @@ export default function getPasswordByType(
     };
   }
 
-  if (tag === 'passwordCheck' && watch) {
+  if (tag === 'passwordCheck' && password) {
     return {
       validation: {
         required: true,
-        validate: (value: string) =>
-          value === watch('password') || SIGN_VAILDATION[tag],
+        validate: (value: string) => value === password || SIGN_VAILDATION[tag],
       },
     };
   }
