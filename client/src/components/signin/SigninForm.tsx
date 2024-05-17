@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 
 import useModalStore from '@/stores/modalStore';
 
@@ -16,15 +16,15 @@ export default function SigninForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
+    control,
   } = useForm<SignFormValue>();
 
   const { open, changeType } = useModalStore();
 
   const { mutate: onSiginIn } = useSigninMutation();
 
-  const email = watch('email');
-  const password = watch('password');
+  const email = useWatch({ name: 'email', control });
+  const password = useWatch({ name: 'password', control });
 
   return (
     <section className="flex flex-col items-center gap-5 px-5 mt-3">
@@ -37,7 +37,7 @@ export default function SigninForm() {
               tag="password"
               register={register}
               errors={errors}
-              watch={watch}
+              password={password}
             />
           </div>
 

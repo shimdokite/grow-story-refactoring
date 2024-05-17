@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 
 import useModalStore from '@/stores/modalStore';
 import useSignStore from '@/stores/signStore';
@@ -20,8 +20,12 @@ export default function SignupForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
+    control,
   } = useForm<SignFormValue>();
+
+  const email = useWatch({ name: 'email', control });
+  const password = useWatch({ name: 'password', control });
+  const nickname = useWatch({ name: 'nickname', control });
 
   const { changeType } = useModalStore();
   const { isCode, setIsCode } = useSignStore();
@@ -29,10 +33,6 @@ export default function SignupForm() {
 
   const { mutate } = useAuthEmailMutation();
   const { mutate: onSignup } = useSignupMutation();
-
-  const email = watch('email');
-  const password = watch('password');
-  const nickname = watch('nickname');
 
   const onValidateEmail = () => {
     if (!email) return;
@@ -85,7 +85,7 @@ export default function SignupForm() {
             tag="password"
             register={register}
             errors={errors}
-            watch={watch}
+            password={password}
             disabled={!isCode}
           />
 
@@ -93,7 +93,7 @@ export default function SignupForm() {
             tag="passwordCheck"
             register={register}
             errors={errors}
-            watch={watch}
+            password={password}
             disabled={!isCode}
           />
 
