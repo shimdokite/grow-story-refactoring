@@ -179,7 +179,7 @@ export interface GuestbookDataInfo {
   modifiedAt: string;
 }
 
-export interface ChatData {
+export interface ChatInfo {
   senderId: number;
   senderName: string;
   messageId: number;
