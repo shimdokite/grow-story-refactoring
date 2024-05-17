@@ -10,7 +10,7 @@ import useAuthEmailMutation from '@/hooks/mutation/useAuthEmailMutation';
 import useSignupMutation from '@/hooks/mutation/useSignupMutation';
 import useEffectOnce from '@/hooks/useEffectOnce';
 
-import { SignInput, SignPasswordInput } from '../sign';
+import { SignTextInput, SignPasswordInput } from '../sign';
 import { CommonButton } from '../common';
 
 import { SignFormValue } from '@/types/common';
@@ -61,7 +61,7 @@ export default function SignupForm() {
     <section>
       <form onSubmit={handleSubmit(() => conditionSignup())}>
         <div className="flex flex-col gap-1 w-[300px]">
-          <SignInput type="email" register={register} errors={errors} />
+          <SignTextInput type="email" register={register} errors={errors} />
 
           <div className="flex justify-center">
             <CommonButton
@@ -74,7 +74,7 @@ export default function SignupForm() {
             </CommonButton>
           </div>
 
-          <SignInput
+          <SignTextInput
             type="nickname"
             register={register}
             errors={errors}

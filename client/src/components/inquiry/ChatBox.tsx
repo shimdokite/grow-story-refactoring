@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 
 import useChatStore from '@/stores/chatStore';
 
-import { ChatData } from '@/types/data';
+import { ChatInfo } from '@/types/data';
 
 interface ChatBoxProps {
-  chat: ChatData[];
+  chat: ChatInfo[];
   user: string;
   role: 'user' | 'admin';
 }
@@ -17,7 +17,7 @@ export default function ChatBox({ chat, user, role }: ChatBoxProps) {
 
   useEffect(() => {
     if (chat && role === 'admin') {
-      const getQuestionerId = (chat: ChatData[]) => {
+      const getQuestionerId = (chat: ChatInfo[]) => {
         return chat.map(
           (data) =>
             data.senderId !== 101 && setQuestionerId(`${data.senderId}`),
